@@ -1,13 +1,13 @@
 <?php
 ob_start();
-define('API_KEY','توکن شما');
-$admin =  "آیدی عددی ادمین";
+define('API_KEY','TOKEN');
+$admin = "UserID Admin";
 $update = json_decode(file_get_contents('php://input'));
 $from_id = $update->message->from->id;
 $chat_id = $update->message->chat->id;
 $text = $update->message->text;
 $jock = file_get_contents("http://api.roonx.com/jock.php");
-function roonx($method,$datas=[]){
+function cewer($method,$datas=[]){
     $url = "https://api.telegram.org/bot".API_KEY."/".$method;
     $ch = curl_init();
     curl_setopt($ch,CURLOPT_URL,$url);
@@ -21,7 +21,7 @@ function roonx($method,$datas=[]){
     }
 }
 if(preg_match('/^\/([Ss]tart)/',$text)){
-roonx('sendMessage',[
+cewer('sendMessage',[
     'chat_id'=>$chat_id,
     'text'=>"سلام به ربات جک خوش اومدی :)
 	دستور زیر رو بفرس تا واست جک بفرستم 😝
@@ -29,7 +29,7 @@ roonx('sendMessage',[
     'parse_mode'=>'html'
   ]);
 }elseif(preg_match('/^\/([Jj]ock)/',$text)){
-roonx('sendMessage',[
+cewer('sendMessage',[
     'chat_id'=>$chat_id,
     'text'=>$jock,
     'parse_mode'=>'html'
@@ -38,7 +38,7 @@ roonx('sendMessage',[
     $user = file_get_contents('Member.txt');
     $member_id = explode("\n",$user);
     $member_count = count($member_id) -1;
-    roonx('sendMessage',[
+    cewer('sendMessage',[
       'chat_id'=>$chat_id,
       'text'=>"تعداد کل اعضا: $member_count",
       'parse_mode'=>'HTML'
