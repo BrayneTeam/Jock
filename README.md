@@ -8,7 +8,8 @@
 
 <h3> Creator :D : @BoySmokerAm
 
-<h3> Channel [Brayne Team](https://t.me/BrayneTeam)
+<h3> Channel [Brayne Team]https://t.me/BrayneTeam
 
 <h2>Thanks To 
-- @iBorn
+
+<h5> @iBorn
